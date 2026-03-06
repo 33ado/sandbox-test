@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://f3fucegwssn3"]
+
+[ext_resource type="Script" uid="uid://cprawxa8ljv1q" path="res://entities/player/player.gd" id="1_symyc"]
+[ext_resource type="PackedScene" uid="uid://tbd0rca83gjo" path="res://utils/state/state_machine/state_machine.tscn" id="2_abrql"]
+[ext_resource type="Texture2D" uid="uid://b3mj87hymmk8a" path="res://icon.svg" id="2_wvtmh"]
+[ext_resource type="Script" uid="uid://5jejr0lawspd" path="res://entities/player/states/fall/fall.gd" id="3_qiwj3"]
+[ext_resource type="Script" uid="uid://c5p3fxycjdwv" path="res://entities/player/states/idle/idle.gd" id="4_26q78"]
+[ext_resource type="Script" uid="uid://dojuuaom0vpxv" path="res://entities/player/states/jump/jump.gd" id="5_bectd"]
+[ext_resource type="Script" uid="uid://bx51snc83kady" path="res://entities/player/states/run/run.gd" id="6_wvtmh"]
+[ext_resource type="Script" uid="uid://ceyqkqobf4q2p" path="res://entities/player/utils/coyote_timer.gd" id="7_qiwj3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_symyc"]
+
+[node name="Player" type="CharacterBody2D" unique_id=201697026]
+script = ExtResource("1_symyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=706171451]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_symyc")
+
+[node name="StateMachine" parent="." unique_id=1616285566 node_paths=PackedStringArray("parent", "initial_state") instance=ExtResource("2_abrql")]
+parent = NodePath("..")
+initial_state = NodePath("Fall")
+
+[node name="Fall" type="Node" parent="StateMachine" unique_id=709837330 node_paths=PackedStringArray("coyote_timer")]
+script = ExtResource("3_qiwj3")
+coyote_timer = NodePath("../../CoyoteTimer")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1736623246 node_paths=PackedStringArray("coyote_timer")]
+script = ExtResource("4_26q78")
+coyote_timer = NodePath("../../CoyoteTimer")
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=2020308409]
+script = ExtResource("5_bectd")
+
+[node name="Run" type="Node" parent="StateMachine" unique_id=1077739538 node_paths=PackedStringArray("coyote_timer")]
+script = ExtResource("6_wvtmh")
+coyote_timer = NodePath("../../CoyoteTimer")
+
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=835347961]
+wait_time = 0.1
+script = ExtResource("7_qiwj3")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=889350986]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1496226153]
+texture = ExtResource("2_wvtmh")
