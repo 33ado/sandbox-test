@@ -1,24 +1,11 @@
 [gd_scene format=3 uid="uid://c070h5aiug2ga"]
 
 [ext_resource type="PackedScene" uid="uid://f3fucegwssn3" path="res://entities/player/player.tscn" id="1_syuel"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_syuel"]
-size = Vector2(813, 53)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8a8pi"]
+[ext_resource type="PackedScene" uid="uid://70ih8381wod8" path="res://utils/tilemap/tile_map.tscn" id="2_8a8pi"]
 
 [node name="Test" type="Node2D" unique_id=429945544]
 
 [node name="Player" parent="." unique_id=1711613800 instance=ExtResource("1_syuel")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=895297801]
-position = Vector2(229, 271)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=832856735]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_syuel")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=999499248]
-position = Vector2(-1.9999847, 1.0000038)
-scale = Vector2(811.99994, 49.999992)
-texture = SubResource("PlaceholderTexture2D_8a8pi")
+[node name="TileMap" parent="." unique_id=1066474325 instance=ExtResource("2_8a8pi")]
+position = Vector2(-117, -68)
