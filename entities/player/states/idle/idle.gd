@@ -2,11 +2,9 @@ extends State
 class_name Idle
 
 @export var coyote_timer : CoyoteTimer
-
-func enter() -> void:
-	parent.velocity.x = lerp(parent.velocity.x, 0.0, parent.DECELERATION)
 	
 func physics_update(delta : float) -> void:
+	parent.velocity.x = lerp(parent.velocity.x, 0.0, parent.DECELERATION)
 	parent.velocity.y += parent.gravity * delta
 	
 	if not parent.is_on_floor():
