@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var tilemap: Foreground
-@export var selected_tile: int = 0
+@export var selected_tile: int = -1
 
 const SPEED := 400
 const JUMP_FORCE : float = 700.0
