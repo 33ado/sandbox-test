@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://70ih8381wod8"]
+[gd_scene format=3 uid="uid://bpge23rolt7a6"]
 
-[ext_resource type="Texture2D" uid="uid://ctgymdkpf0fb2" path="res://resources/Mossy Tileset/Mossy - TileSet.png" id="1_igkc3"]
+[ext_resource type="Texture2D" uid="uid://ctgymdkpf0fb2" path="res://resources/Mossy Tileset/Mossy - TileSet.png" id="1_7d3sw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sn46t"]
-texture = ExtResource("1_igkc3")
+texture = ExtResource("1_7d3sw")
 texture_region_size = Vector2i(512, 512)
 0:0/0 = 0
 0:0/0/terrain_set = 0

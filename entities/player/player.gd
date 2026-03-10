@@ -15,9 +15,10 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		var tile_pos = tilemap.local_to_map(tilemap.get_local_mouse_position())
-		tilemap.place_block(selected_tile, tile_pos, self)
-	
+		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
+			tilemap.place_block(get_global_mouse_position(), selected_tile)
+		if event.button_index == MouseButton.MOUSE_BUTTON_RIGHT:
+			tilemap.delete_block(get_global_mouse_position())
 
 func _physics_process(delta: float) -> void:	
 	move_and_slide()
